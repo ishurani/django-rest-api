@@ -22,11 +22,10 @@ def get_Thought():
 
 
 def run():
-    global thought_dict
-
-    print(threading.currentThread().getName())
-    #schedule.every(5).seconds.do(get_Thought)
-    schedule.every().day.at("11:59").do(get_Thought)
+    #print(threading.currentThread().getName())
+    get_Thought()
+    schedule.every(86400).seconds.do(get_Thought)
+    #schedule.every().day.at("15:45").do(get_Thought)
     while True:
         schedule.run_pending()
         time.sleep(1)
